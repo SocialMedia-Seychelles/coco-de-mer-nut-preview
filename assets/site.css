@@ -884,3 +884,7 @@ button{cursor:pointer}
   .kn-side{bottom:200px;text-shadow:0 2px 18px rgba(0,0,0,.9)}
   .ab-hero::after{background:linear-gradient(180deg,rgba(12,18,14,.7),rgba(12,18,14,.55) 50%,rgba(12,18,14,.85))}
 }
+@media (min-width:761px) and (max-width:1000px){
+  .hh-nut{top:60%;width:min(48vw,400px)}
+  .hh-thumbs{bottom:120px;right:var(--gut);margin-right:0;flex-direction:column}
+}
