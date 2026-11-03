@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14201A">
+{{preload}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nanum+Gothic:wght@400;700&family=Parkinsans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v={{v}}">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body data-ink="{{ink}}" data-page="{{page}}">
+
+<header class="site-header" data-header>
+  <a class="logo" href="index.html" aria-label="Coco De Mer Seychelles, home"><img src="assets/img/web/logo.png" alt="Coco De Mer"></a>
+  <nav class="menu" aria-label="Main">
+    <span class="menu-glow" aria-hidden="true"></span>
+    <a href="shop.html"{{cur:shop}}>Shop the Nut</a>
+    <a href="kernel.html"{{cur:kernel}}>The Kernel</a>
+    <a href="about.html"{{cur:about}}>About</a>
+    <a href="journal.html"{{cur:journal}}>Journal</a>
+    <a href="visit.html"{{cur:visit}}>Visit</a>
+  </nav>
+  <a class="btn-perfume" href="https://socialmedia-seychelles.github.io/coco-de-mer-preview/" target="_blank" rel="noopener"><span>Shop<span class="long"> the</span> Perfume</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  <button class="btn-grid" aria-label="Open menu" aria-expanded="false" data-menu-open>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="1.6"/><circle cx="12" cy="6" r="1.6"/><circle cx="18" cy="6" r="1.6"/><circle cx="6" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="12" r="1.6"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg>
+  </button>
+</header>
+<div class="overlay-menu" data-menu hidden>
+  <button class="overlay-close" aria-label="Close menu" data-menu-close>×</button>
+  <nav aria-label="Full menu">
+    <a href="index.html">Home</a><a href="shop.html">Shop the Nut</a><a href="kernel.html">The Kernel</a><a href="about.html">About the Coco de Mer</a>
+    <a href="journal.html">Journal</a><a href="visit.html">Visit &amp; Contact</a><a href="buying-guide.html">Buying Guide &amp; FAQ</a>
+    <a class="small" href="https://socialmedia-seychelles.github.io/coco-de-mer-preview/" target="_blank" rel="noopener">Shop the Perfume ↗</a>
+  </nav>
+  <p class="overlay-contact"><a href="tel:+2482595547">+248 259 5547</a> · <a href="mailto:info@cocodemercosmetics.com">info@cocodemercosmetics.com</a></p>
+</div>
+
+<main>
+{{body}}
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand"><img loading="lazy" decoding="async" src="assets/img/web/logo.png" alt="Coco De Mer">
+    <p>The home of the Coco de Mer since 1999. Certified nuts, natural kernel and the stories behind the world's largest seed.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/cocodemerseychelles/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" class="fill"/></svg></a>
+      <a href="https://www.facebook.com/CocoDeMerSeychelles" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21z"/></svg></a>
+      <a href="https://wa.me/2482595547" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8z"/><path class="fill" d="M9.2 7.9c.2-.4.5-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .2-.1.5-.4.7-.5.4-1.3.6-2.2.3-2.4-.8-4.3-2.7-5.1-5.1-.3-.9-.1-1.7.3-2.2z"/></svg></a>
+    </div>
+  </div>
+  <div class="foot-col"><h3>Visit</h3><p>Domaine de Val des Prés<br>Craft Village, Au Cap<br>Mahé, Seychelles</p>
+    <a class="foot-hours" href="visit.html">Monday to Saturday <span>Closed Sundays · No booking needed</span></a></div>
+  <div class="foot-col"><h3>Contact</h3><p><a href="tel:+2482595547">+248 259 5547</a><br><a href="https://wa.me/2482595547" target="_blank" rel="noopener">Also on WhatsApp</a><br><a href="mailto:info@cocodemercosmetics.com">info@cocodemercosmetics.com</a></p></div>
+  <div class="foot-col"><h3>Explore</h3><p><a href="shop.html">Shop the Nut</a><br><a href="kernel.html">The Kernel · 海底椰</a><br><a href="about.html">About the Coco de Mer</a><br><a href="journal.html">Journal</a><br><a href="buying-guide.html">Buying Guide &amp; FAQ</a></p></div>
+  <p class="foot-legal"><span>© <span data-year></span> Coco De Mer Seychelles · Island Scent Pty Ltd</span><a href="https://socialmedia-seychelles.github.io/coco-de-mer-preview/" target="_blank" rel="noopener">Perfumes at Coco De Mer Collection ↗</a></p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{{> wa-icon}}<span>Chat on WhatsApp</span></a>
+
+<script src="assets/nuts.js?v={{v}}"></script>
+<script src="assets/site.js?v={{v}}"></script>
+</body>
+</html>
