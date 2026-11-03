@@ -1077,3 +1077,15 @@ button{cursor:pointer}
   .ps-rel{grid-template-columns:1fr}
   .ps-rel .ps-card:nth-child(3){display:block}
 }
+
+/* Menu: same size and house icon as the perfume site */
+.menu{top:15px}
+.menu a{height:48px;padding:0 20px}
+.menu a[aria-current="page"]{background:rgba(255,236,197,.2)}
+.menu-glow{height:48px}
+.menu a.menu-home{padding:0 16px}
+.menu-home svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1320px){.menu a{padding:0 14px}.menu a.menu-home{padding:0 13px}}
+.btn-perfume{height:56px;padding:0 22px;font-size:13px;letter-spacing:0;text-transform:none}
+@media (max-width:760px){.btn-perfume{height:46px;padding:0 14px;font-size:12px}}
+@media (min-width:761px) and (max-width:1100px){.site-footer{grid-template-columns:1.1fr 1fr 1fr;padding:64px 40px 96px}.foot-brand{grid-column:1/-1;display:flex;align-items:center;gap:32px}.foot-brand img{margin:0}.foot-brand p{margin:0}.foot-brand .socials{margin-left:auto}}

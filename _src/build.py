@@ -10,7 +10,7 @@ import json, re, pathlib, time, datetime, html as H, urllib.parse
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / '_src'
 V = 'n' + str(int(time.time()))[-6:]
-NAV = ['shop', 'kernel', 'about', 'journal', 'guide']
+NAV = ['home', 'shop', 'kernel', 'about', 'journal', 'guide']
 # Perfume site base URL: switch to https://www.cocodemercollection.com/ at launch
 PERFUME = 'https://socialmedia-seychelles.github.io/coco-de-mer-preview/'
 
@@ -102,3 +102,22 @@ for p in posts:
             'preload': '<link rel="canonical" href="%s">\n<script type="application/ld+json">%s</script>' % (canon, json.dumps(ld, ensure_ascii=False))}
     render(meta, body, ROOT / 'post' / p['slug'] / 'index.html', depth=2)
 print('built', len(posts), 'posts')
+
+# Old Wix addresses -> new pages, so Google results and bookmarks keep working after launch
+REDIRECTS = {
+    'home': 'index.html', 'blog': 'journal.html', 'faq': 'buying-guide.html#faq',
+    'buy-coco-de-mer-kernel': 'kernel.html', 'shipping-and-returns': 'buying-guide.html#shipping',
+    'terms-and-conditions': 'buying-guide.html#returns', 'shop-cocodemer-perfume': PERFUME,
+}
+for prod in ['coco-de-mer-female-nut-0007193', 'coco-de-mer-bowl-g000453', 'coco-de-mer-bowl-g000474', 'coco-de-mer-bowl-g000488',
+             'coco-de-mer-female-nut-0010642', 'coco-de-mer-female-nut-0007208', 'coco-de-mer-female-nut-0007192',
+             'coco-de-mer-female-nut-0007209', 'coco-de-mer-female-nut-0007206', 'coco-de-mer-bowl-g000478', 'coco-de-mer-female-nut-0007196']:
+    REDIRECTS['product-page/' + prod] = 'shop.html'
+for old, new in REDIRECTS.items():
+    to = new if new.startswith('http') else '../' * (old.count('/') + 1) + new
+    out = ROOT / old / 'index.html'
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Coco De Mer Seychelles</title>'
+                   '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=%s">'
+                   '<script>location.replace(%s)</script></head><body><a href="%s">Continue</a></body></html>' % (to, json.dumps(to), to))
+print('built', len(REDIRECTS), 'redirects')
