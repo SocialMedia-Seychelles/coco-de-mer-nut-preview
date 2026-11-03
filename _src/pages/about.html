@@ -70,18 +70,42 @@
       <div class="reveal" data-d="2"><b>1999</b><p>Our family takes over and begins processing Coco de Mer.</p></div>
       <div class="reveal now" data-d="3"><b>Today</b><p>Our shop, factory and free tours in the Craft Village.</p></div>
     </div>
-    <a class="btn btn-gold reveal" href="visit.html">Plan your visit {{> arrow}}</a>
+    <a class="btn btn-gold reveal" href="{{perfume}}our-story.html#timeline" target="_blank" rel="noopener">Learn more {{> arrow}}</a>
   </div>
 </section>
 
-<section class="sec paper">
-  <div class="wrap husk">
-    <div>
-      <span class="kicker reveal">Our sister brand</span>
+<section class="scent" data-scent>
+  <span class="scent-word" aria-hidden="true">Fanm</span>
+  <div class="wrap scent-grid">
+    <div class="scent-copy">
+      <span class="kicker reveal">Our sister brand · Coco De Mer Collection</span>
       <h2 class="h2 split"><span class="ln">The husk becomes</span><span class="ln"><em>perfume.</em></span></h2>
-      <p class="lede reveal" data-d="1">The husk of the Coco de Mer has a strong, sweet natural aroma. We use it in the fragrances of the Coco De Mer Collection, made in the same factory by the same family.</p>
-      <a class="btn btn-ink reveal" data-d="2" href="https://socialmedia-seychelles.github.io/coco-de-mer-preview/" target="_blank" rel="noopener">Discover the perfumes {{> arrow}}</a>
+      <p class="lede reveal" data-d="1">The husk of the Coco de Mer has a strong, sweet natural aroma. We use it in five fragrances, made in the same factory by the same family. Tap a scent to meet it.</p>
+      <div class="scent-list reveal" data-d="2" role="tablist" aria-label="Our five perfumes">
+          <button type="button" role="tab" aria-selected="true" data-c1="#B02A30" data-c2="#5A0C11" data-w="#F7D9CB" data-word="Fanm" data-for="For her" data-notes="Coco de Mer, jasmine &amp; gardenia on warm amber." data-tags="Luminous,Floral,Commanding"><i>01</i><b>Fanm</b><span>Eau de Parfum</span></button>
+          <button type="button" role="tab" aria-selected="false" data-c1="#3B3026" data-c2="#0F0C0A" data-w="#D9B77A" data-word="Oud" data-for="For him &amp; her" data-notes="Oud, leather &amp; rose over cashmere wood." data-tags="Enigmatic,Smouldering,Sacred"><i>02</i><b>Coco De Mer Oud</b><span>Parfum</span></button>
+          <button type="button" role="tab" aria-selected="false" data-c1="#D6A63C" data-c2="#7A5512" data-w="#FFF2CF" data-word="Lodas" data-for="For him &amp; her" data-notes="Yuzu, pink pepper &amp; magnolia on amber." data-tags="Effervescent,Verdant,Wanderlust"><i>03</i><b>Lodas</b><span>Eau de Parfum</span></button>
+          <button type="button" role="tab" aria-selected="false" data-c1="#2B4BC0" data-c2="#0B1650" data-w="#D9E3FF" data-word="Zonm" data-for="For him" data-notes="Cardamom, black pepper &amp; rose on oak musk." data-tags="Seductive,Marine,Intriguing"><i>04</i><b>Zonm</b><span>Eau de Parfum</span></button>
+          <button type="button" role="tab" aria-selected="false" data-c1="#EE9846" data-c2="#A9461A" data-w="#FFF0DC" data-word="Sovaz" data-for="For him &amp; her" data-notes="Grapefruit, mint &amp; ginger on vetiver." data-tags="Provocative,Fresh,Unruly"><i>05</i><b>Sovaz</b><span>Eau de Parfum</span></button>
+      </div>
+      <a class="btn btn-cream reveal" data-d="3" href="{{perfume}}index.html#collection" target="_blank" rel="noopener"><span>Discover the collection</span> {{> arrow}}</a>
     </div>
-    <div class="husk-img clip"><img src="assets/img/web/story-palm.webp" alt="A fallen Coco de Mer in its husk" loading="lazy" data-speed="-.06"></div>
+    <div class="scent-stage reveal" data-d="1">
+      <div class="scent-ring" aria-hidden="true"></div>
+      <figure class="scent-husk"><img src="assets/img/web/nut-husk.webp" alt="" loading="lazy"><figcaption>From the husk</figcaption></figure>
+      <div class="scent-bottle" data-tilt>
+        <img src="assets/img/web/perfume/fanm.webp" alt="Fanm bottle" class="on" loading="lazy">
+        <img src="assets/img/web/perfume/oud.webp" alt="Coco De Mer Oud bottle" loading="lazy">
+        <img src="assets/img/web/perfume/lodas.webp" alt="Lodas bottle" loading="lazy">
+        <img src="assets/img/web/perfume/zonm.webp" alt="Zonm bottle" loading="lazy">
+        <img src="assets/img/web/perfume/sovaz.webp" alt="Sovaz bottle" loading="lazy">
+      </div>
+      <div class="scent-card" aria-live="polite">
+        <small data-scent-for>For her</small>
+        <p data-scent-notes>Coco de Mer, jasmine &amp; gardenia on warm amber.</p>
+        <div class="scent-tags" data-scent-tags><span>Luminous</span><span>Floral</span><span>Commanding</span></div>
+      </div>
+      <div class="scent-bar" aria-hidden="true"><i></i></div>
+    </div>
   </div>
 </section>

@@ -9,7 +9,9 @@ import json, re, pathlib, time
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / '_src'
 V = 'n' + str(int(time.time()))[-6:]
-NAV = ['shop', 'kernel', 'about', 'journal', 'visit', 'guide']
+NAV = ['shop', 'kernel', 'about', 'journal', 'guide']
+# Perfume site base URL: switch to https://www.cocodemercollection.com/ at launch
+PERFUME = 'https://socialmedia-seychelles.github.io/coco-de-mer-preview/'
 
 partials = {p.stem: p.read_text() for p in (SRC / 'partials').glob('*.html')}
 
@@ -30,7 +32,8 @@ for page in sorted((SRC / 'pages').glob('*.html')):
                 .replace('{{ink}}', meta.get('ink', 'light'))
                 .replace('{{page}}', meta.get('page', page.stem))
                 .replace('{{preload}}', meta.get('preload', ''))
-                .replace('{{v}}', V))
+                .replace('{{v}}', V)
+                .replace('{{perfume}}', PERFUME))
     left = re.findall(r'\{\{[^}]*\}\}', html)
     if left:
         raise SystemExit(f'{page.name}: unresolved {set(left)}')

@@ -369,11 +369,100 @@
     jchips.forEach((c) => c.addEventListener('click', () => {
       const cat = c.dataset.catFilter;
       jchips.forEach((x) => x.setAttribute('aria-pressed', x === c ? 'true' : 'false'));
-      $$('.post').forEach((p, i) => {
+      let n = 0;
+      $$('.jx-row').forEach((p) => {
         const show = cat === 'all' || p.dataset.cat === cat;
         p.classList.toggle('hide', !show);
-        if (show && !calm) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = `cardIn .6s var(--ease-out) ${i % 6 * 50}ms both`; }
+        if (show && !calm) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = `cardIn .6s var(--ease-out) ${n++ * 40}ms both`; }
       });
     }));
+  }
+
+  /* ---------- Journal index: image follows the cursor ---------- */
+  const peek = $('.jx-peek');
+  if (peek && matchMedia('(hover:hover) and (min-width:1001px)').matches) {
+    const pimg = peek.querySelector('img');
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
+    const loop = () => {
+      cx += (x - cx) * 0.18; cy += (y - cy) * 0.18;
+      // keep the preview right of the titles so it never covers the one being read
+      peek.style.transform = `translate(${Math.max(cx + 40, innerWidth * 0.55)}px, ${cy - 105}px) rotate(${(x - cx) * 0.04}deg)`;
+      raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.5 ? requestAnimationFrame(loop) : 0;
+    };
+    const move = (e) => { x = e.clientX; y = e.clientY; if (!raf) raf = requestAnimationFrame(loop); };
+    $$('.jx-row').forEach((r) => {
+      r.addEventListener('mouseenter', (e) => {
+        if (!peek.classList.contains('on')) { cx = x = e.clientX; cy = y = e.clientY; }
+        pimg.src = r.dataset.img;
+        peek.classList.toggle('bottle', r.hasAttribute('data-bottle'));
+        peek.classList.add('on');
+      });
+      r.addEventListener('mousemove', move);
+    });
+    $('.jx-list').addEventListener('mouseleave', () => peek.classList.remove('on'));
+  }
+
+  /* ---------- Auto-advancing carousels (perfume stage, journal facts) ---------- */
+  // Each step runs a CSS progress bar; when the bar finishes we move on. Hovering pauses it.
+  const autoplay = (root, bar, count, show) => {
+    let i = 0, seen = false;
+    const go = (n) => {
+      i = (n + count) % count; show(i);
+      if (calm || !seen) return;
+      bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
+    };
+    bar.addEventListener('animationend', () => go(i + 1));
+    root.addEventListener('mouseenter', () => root.classList.add('paused'));
+    root.addEventListener('mouseleave', () => root.classList.remove('paused'));
+    root.addEventListener('focusin', () => root.classList.add('paused'));
+    root.addEventListener('focusout', () => root.classList.remove('paused'));
+    new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting && !seen) { seen = true; go(i); }
+      root.classList.toggle('paused', !e.isIntersecting);
+    }), { threshold: 0.35 }).observe(root);
+    return { go, get i() { return i; } };
+  };
+
+  const scent = $('[data-scent]');
+  if (scent) {
+    const tabs = $$('[role="tab"]', scent), imgs = $$('.scent-bottle img', scent);
+    const word = $('.scent-word', scent), card = $('.scent-card', scent);
+    const show = (i) => {
+      const t = tabs[i], d = t.dataset;
+      tabs.forEach((x) => x.setAttribute('aria-selected', x === t ? 'true' : 'false'));
+      imgs.forEach((im, k) => im.classList.toggle('on', k === i));
+      scent.style.setProperty('--c1', d.c1); scent.style.setProperty('--c2', d.c2); scent.style.setProperty('--w', d.w);
+      word.classList.add('swap'); card.classList.add('swap');
+      setTimeout(() => {
+        word.textContent = d.word;
+        $('[data-scent-for]', card).textContent = d.for;
+        $('[data-scent-notes]', card).textContent = d.notes;
+        $('[data-scent-tags]', card).innerHTML = d.tags.split(',').map((g) => `<span>${g}</span>`).join('');
+        word.classList.remove('swap'); card.classList.remove('swap');
+      }, 380);
+    };
+    imgs.forEach((im) => { im.loading = 'eager'; });
+    const ap = autoplay(scent, $('.scent-bar i', scent), tabs.length, show);
+    tabs.forEach((t, k) => t.addEventListener('click', () => ap.go(k)));
+    const bottle = $('[data-tilt]', scent), stage = $('.scent-stage', scent);
+    if (!calm && matchMedia('(hover:hover)').matches) {
+      stage.addEventListener('pointermove', (e) => {
+        const r = stage.getBoundingClientRect();
+        bottle.style.setProperty('--tx', ((e.clientX - r.left) / r.width - 0.5) * 2);
+        bottle.style.setProperty('--ty', ((e.clientY - r.top) / r.height - 0.5) * 2);
+      });
+      stage.addEventListener('pointerleave', () => { bottle.style.setProperty('--tx', 0); bottle.style.setProperty('--ty', 0); });
+    }
+  }
+
+  const dyk = $('[data-dyk]');
+  if (dyk) {
+    const cards = $$('.dyk-card', dyk), num = $('[data-dyk-i]', dyk);
+    const ap = autoplay(dyk, $('.dyk-bar i', dyk), cards.length, (i) => {
+      cards.forEach((c, k) => c.classList.toggle('is-on', k === i));
+      num.textContent = String(i + 1).padStart(2, '0');
+    });
+    $('[data-dyk-prev]', dyk).addEventListener('click', () => ap.go(ap.i - 1));
+    $('[data-dyk-next]', dyk).addEventListener('click', () => ap.go(ap.i + 1));
   }
 })();
