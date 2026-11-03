@@ -3,6 +3,8 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // site root, so pages in sub-folders (journal posts) can build asset paths
+  const ROOT = (document.currentScript && document.currentScript.src.replace(/assets\/site\.js.*$/, '')) || '';
   const WA = 'https://wa.me/2482595547';
   const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 
@@ -103,7 +105,7 @@
   if (!seen && !calm) {
     const ld = document.createElement('div');
     ld.className = 'loader';
-    ld.innerHTML = '<img src="assets/img/web/logo.png" alt=""><i></i>';
+    ld.innerHTML = `<img src="${ROOT}assets/img/web/logo.png" alt=""><i></i>`;
     document.body.appendChild(ld);
     document.body.style.overflow = 'hidden';
     const done = () => {
@@ -464,5 +466,14 @@
     });
     $('[data-dyk-prev]', dyk).addEventListener('click', () => ap.go(ap.i - 1));
     $('[data-dyk-next]', dyk).addEventListener('click', () => ap.go(ap.i + 1));
+  }
+  /* ---------- Journal post: reading progress ---------- */
+  const prog = $('.ps-progress'), art = $('.ps-body');
+  if (prog && art) {
+    const upd = () => {
+      const r = art.getBoundingClientRect();
+      prog.style.setProperty('--p', Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight * 0.6))));
+    };
+    addEventListener('scroll', upd, { passive: true }); upd();
   }
 })();

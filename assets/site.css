@@ -1021,3 +1021,59 @@ button{cursor:pointer}
   .dyk-cards{min-height:400px}
 }
 .dyk-bar i{background:var(--gold)}
+
+/* =========================================================
+   JOURNAL POST
+   ========================================================= */
+.ps-progress{position:fixed;left:0;right:0;top:0;z-index:200;height:3px;background:var(--gold-deep);transform:scaleX(var(--p,0));transform-origin:left}
+.ps{background:var(--paper);color:var(--ink)}
+.ps-head{max-width:980px;margin:0 auto;padding:150px var(--gut) 0;text-align:center}
+.ps-head .crumbs{justify-content:center;margin-bottom:22px}
+.ps-title{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.6vw,84px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+.ps-meta{display:flex;justify-content:center;gap:14px;margin:24px 0 0;font-family:var(--ui);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.ps-meta span::before{content:"·";margin-right:14px}
+.ps-cover{max-width:1240px;margin:clamp(36px,5vw,64px) auto 0;padding:0 var(--gut)}
+.ps-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:24px}
+.ps-body{max-width:720px;margin:0 auto;padding:clamp(50px,7vw,96px) var(--gut) 30px;font-size:18px;line-height:1.78}
+.ps-body > p:first-child::first-letter{float:left;margin:.08em .12em 0 0;font-family:var(--serif);font-size:4.4em;line-height:.8;color:var(--gold-deep)}
+.ps-body p{margin:0 0 1.25em}
+.ps-body h2{margin:1.9em 0 .55em;font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.6vw,38px);line-height:1.15}
+.ps-body h3{margin:1.6em 0 .4em;font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2}
+.ps-body ul,.ps-body ol{margin:0 0 1.4em;padding-left:1.2em}
+.ps-body li{margin-bottom:.7em;padding-left:.2em}
+.ps-body li::marker{color:var(--gold-deep)}
+.ps-body strong{font-weight:700}
+.ps-body a{color:var(--gold-deep);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.ps-body a:hover{color:var(--ink)}
+.ps-body hr{width:90px;height:1px;margin:2.6em auto;border:0;background:rgba(41,31,20,.25)}
+.ps-body blockquote{margin:1.8em 0;padding-left:22px;border-left:2px solid var(--gold);font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.4}
+.ps-body figure{margin:2.4em -12%}
+.ps-body figure img{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:18px;background:var(--paper-2)}
+.ps-body figcaption{margin-top:10px;text-align:center;font-family:var(--serif);font-style:italic;font-size:16px;opacity:.7}
+.ps-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:720px;margin:0 auto;padding:30px var(--gut) clamp(70px,8vw,110px);border-top:1px solid rgba(41,31,20,.14)}
+.link-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-weight:500;font-size:13px;text-decoration:none}
+.link-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:translate .35s var(--ease-out)}
+.link-back:hover svg{translate:-4px 0}
+.ps-rel{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ps-card{text-decoration:none;color:inherit}
+.ps-card figure{margin:0 0 16px;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:var(--paper)}
+.ps-card figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
+.ps-card:hover figure img{transform:scale(1.05)}
+.ps-card small{font-family:var(--ui);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.ps-card h3{margin:8px 0 6px;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2;transition:color .3s}
+.ps-card:hover h3{color:var(--gold-deep)}
+.ps-card span{font-family:var(--ui);font-size:12px;opacity:.55}
+.ps-cta{display:grid;justify-items:center;text-align:center}
+.ps-cta .lede{margin:18px auto 28px}
+@media (max-width:1000px){
+  .ps-body figure{margin-inline:0}
+  .ps-rel{grid-template-columns:1fr 1fr}
+  .ps-rel .ps-card:nth-child(3){display:none}
+}
+@media (max-width:760px){
+  .ps-head{padding-top:120px}
+  .ps-body{font-size:17px}
+  .ps-cover img{aspect-ratio:4/3;border-radius:18px}
+  .ps-rel{grid-template-columns:1fr}
+  .ps-rel .ps-card:nth-child(3){display:block}
+}
