@@ -64,11 +64,11 @@
     <div class="reserve-side">
       <span class="kicker reveal">Reserve this <span data-f="thing">nut</span></span>
       <h2 class="h2 reveal" data-f="reserve-title">Hold <span data-f="no"></span><br>for yourself.</h2>
-      <p class="lede reveal" data-d="1" data-f="reserve-lede">Send your details and it's marked Reserved straight away. We'll reply with your invoice, shipping to your country and the paperwork we'll prepare. Nothing is charged until you approve the invoice.</p>
+      <p class="lede reveal" data-d="1" data-f="reserve-lede">Send your details by WhatsApp or email and we'll put it on hold for you. We'll reply with your invoice, shipping to your country and the paperwork we'll prepare. Nothing is charged until you approve the invoice.</p>
       <img class="mini-nut float reveal" data-d="2" data-src="front" alt="" aria-hidden="true">
     </div>
     <div>
-      <form class="form" id="reserve-form" data-demo>
+      <form class="form" id="reserve-form" data-send data-subject="Nut reservation">
         <input type="hidden" name="nut" value="">
         <div class="field"><label for="r-name">Full name</label><input id="r-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="r-email">Email</label><input id="r-email" type="email" name="email" autocomplete="email" required></div>
@@ -77,10 +77,10 @@
         <div class="field full"><span class="lbl">Delivery</span>
           <div class="radios"><label><input type="radio" name="delivery" value="ship" checked> Ship to me</label><label><input type="radio" name="delivery" value="collect"> Collect in Seychelles</label></div></div>
         <div class="field full"><label for="r-msg">Message (optional)</label><textarea id="r-msg" name="message"></textarea></div>
-        <div class="form-foot full"><button class="btn btn-ink" type="submit"><span>Reserve this <span data-f="thing">nut</span></span> {{> arrow}}</button>
-          <small>By reserving you agree to our <a href="buying-guide.html#returns">shipping &amp; returns</a> terms.</small></div>
+        <div class="form-foot full"><span class="send-lbl">Send your reservation by</span><div class="send-via"><button class="btn btn-ink btn-wa" type="submit" data-via="wa">{{> wa-icon}} WhatsApp</button><button class="btn btn-ghost btn-wa" type="submit" data-via="mail">{{> mail-icon}} Email</button></div>
+          <small>Your message opens ready to send. By reserving you agree to our <a href="buying-guide.html#returns">shipping &amp; returns</a> terms.</small></div>
       </form>
-      <div class="form-done"><h3>It's on hold for you.</h3><p><span data-f="no"></span> is now reserved in your name. We'll email your invoice and shipping quote shortly. Questions in the meantime? <a href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener">Message us on WhatsApp</a>.</p><small class="preview-note">Preview: this form isn't connected yet, so nothing was sent.</small></div>
+      <div class="form-done"><h3>Almost there: press send.</h3><p>Your reservation for <span data-f="no"></span> is ready in <span data-via-name>WhatsApp</span>. Once it reaches us we put it on hold in your name and send your invoice and shipping quote.</p><p class="send-again">Nothing opened? <a data-again href="#" target="_blank" rel="noopener">Try again</a>, or message us directly on <a href="https://wa.me/2482595547" target="_blank" rel="noopener">WhatsApp +248 259 5547</a> or at <a href="mailto:info@cocodemercosmetics.com">info@cocodemercosmetics.com</a>.</p></div>
       <div class="form-done" id="reserve-closed"><h3>This one isn't available.</h3><p>It's already reserved or sold, but there are more one-of-a-kind nuts waiting. <a href="shop.html">See what's available</a>, or <a href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener">ask us on WhatsApp</a> to hear about the next batch.</p></div>
     </div>
   </div>

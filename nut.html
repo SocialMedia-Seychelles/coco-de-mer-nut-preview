@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nanum+Gothic:wght@400;700&family=Parkinsans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=n725556">
+<link rel="stylesheet" href="assets/site.css?v=n774775">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/img/web/icon-512.png">
@@ -126,11 +126,11 @@
     <div class="reserve-side">
       <span class="kicker reveal">Reserve this <span data-f="thing">nut</span></span>
       <h2 class="h2 reveal" data-f="reserve-title">Hold <span data-f="no"></span><br>for yourself.</h2>
-      <p class="lede reveal" data-d="1" data-f="reserve-lede">Send your details and it's marked Reserved straight away. We'll reply with your invoice, shipping to your country and the paperwork we'll prepare. Nothing is charged until you approve the invoice.</p>
+      <p class="lede reveal" data-d="1" data-f="reserve-lede">Send your details by WhatsApp or email and we'll put it on hold for you. We'll reply with your invoice, shipping to your country and the paperwork we'll prepare. Nothing is charged until you approve the invoice.</p>
       <img class="mini-nut float reveal" data-d="2" data-src="front" alt="" aria-hidden="true">
     </div>
     <div>
-      <form class="form" id="reserve-form" data-demo>
+      <form class="form" id="reserve-form" data-send data-subject="Nut reservation">
         <input type="hidden" name="nut" value="">
         <div class="field"><label for="r-name">Full name</label><input id="r-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="r-email">Email</label><input id="r-email" type="email" name="email" autocomplete="email" required></div>
@@ -139,11 +139,11 @@
         <div class="field full"><span class="lbl">Delivery</span>
           <div class="radios"><label><input type="radio" name="delivery" value="ship" checked> Ship to me</label><label><input type="radio" name="delivery" value="collect"> Collect in Seychelles</label></div></div>
         <div class="field full"><label for="r-msg">Message (optional)</label><textarea id="r-msg" name="message"></textarea></div>
-        <div class="form-foot full"><button class="btn btn-ink" type="submit"><span>Reserve this <span data-f="thing">nut</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-</button>
-          <small>By reserving you agree to our <a href="buying-guide.html#returns">shipping &amp; returns</a> terms.</small></div>
+        <div class="form-foot full"><span class="send-lbl">Send your reservation by</span><div class="send-via"><button class="btn btn-ink btn-wa" type="submit" data-via="wa"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+ WhatsApp</button><button class="btn btn-ghost btn-wa" type="submit" data-via="mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.8 6.5 12 13l8.2-6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> Email</button></div>
+          <small>Your message opens ready to send. By reserving you agree to our <a href="buying-guide.html#returns">shipping &amp; returns</a> terms.</small></div>
       </form>
-      <div class="form-done"><h3>It's on hold for you.</h3><p><span data-f="no"></span> is now reserved in your name. We'll email your invoice and shipping quote shortly. Questions in the meantime? <a href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener">Message us on WhatsApp</a>.</p><small class="preview-note">Preview: this form isn't connected yet, so nothing was sent.</small></div>
+      <div class="form-done"><h3>Almost there: press send.</h3><p>Your reservation for <span data-f="no"></span> is ready in <span data-via-name>WhatsApp</span>. Once it reaches us we put it on hold in your name and send your invoice and shipping quote.</p><p class="send-again">Nothing opened? <a data-again href="#" target="_blank" rel="noopener">Try again</a>, or message us directly on <a href="https://wa.me/2482595547" target="_blank" rel="noopener">WhatsApp +248 259 5547</a> or at <a href="mailto:info@cocodemercosmetics.com">info@cocodemercosmetics.com</a>.</p></div>
       <div class="form-done" id="reserve-closed"><h3>This one isn't available.</h3><p>It's already reserved or sold, but there are more one-of-a-kind nuts waiting. <a href="shop.html">See what's available</a>, or <a href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener">ask us on WhatsApp</a> to hear about the next batch.</p></div>
     </div>
   </div>
@@ -180,7 +180,7 @@
 <a class="wa-float" href="https://wa.me/2482595547" data-wa-nut target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
 <span>Chat on WhatsApp</span></a>
 
-<script src="assets/nuts.js?v=n725556"></script>
-<script src="assets/site.js?v=n725556"></script>
+<script src="assets/nuts.js?v=n774775"></script>
+<script src="assets/site.js?v=n774775"></script>
 </body>
 </html>

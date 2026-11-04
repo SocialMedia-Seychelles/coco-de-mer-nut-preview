@@ -91,7 +91,7 @@
       <p class="reveal" data-d="2" style="font-family:var(--ui);font-size:13px">Prefer to chat? <a href="https://wa.me/2482595547?text=Hello!%20I'd%20like%20to%20order%20Coco%20de%20Mer%20kernel." target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp +248 259 5547</a></p>
     </div>
     <div class="reveal" data-d="1">
-      <form class="form" id="kernel-order" data-demo>
+      <form class="form" id="kernel-order" data-send="Hello! I'd like to order Coco de Mer kernel." data-subject="Kernel order request">
         <div class="field full"><span class="lbl">Cut &amp; quantity</span>
           <div class="order-rows">
             <div class="orow"><input type="checkbox" id="cut-chunks" name="cut" value="Premium Chunks"><label for="cut-chunks">Premium Chunks<small>~7 cm</small></label><div class="qty"><button type="button" data-step="-1" aria-label="Less">−</button><output data-kg="1">1 kg</output><button type="button" data-step="1" aria-label="More">+</button></div></div>
@@ -103,9 +103,9 @@
         <div class="field"><label for="k-email">Email</label><input id="k-email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="k-country">Country</label><input id="k-country" autocomplete="country-name" required></div>
         <div class="field"><label for="k-phone">Phone / WhatsApp</label><input id="k-phone" type="tel" autocomplete="tel"></div>
-        <div class="form-foot full"><button class="btn btn-gold" type="submit">Request invoice {{> arrow}}</button><span class="order-total" data-total aria-live="polite"></span></div>
+        <div class="form-foot full"><span class="send-lbl">Send your request by</span><div class="send-via"><button class="btn btn-gold btn-wa" type="submit" data-via="wa">{{> wa-icon}} WhatsApp</button><button class="btn btn-ghost btn-wa" type="submit" data-via="mail">{{> mail-icon}} Email</button></div><span class="order-total" data-total aria-live="polite"></span></div>
       </form>
-      <div class="form-done"><h3>Request received.</h3><p>We'll send your invoice, including shipping, by email. 谢谢！</p><small class="preview-note">Preview: this form isn't connected yet, so nothing was sent.</small></div>
+      <div class="form-done"><h3>Almost there: press send.</h3><p>Your order request is ready in <span data-via-name>WhatsApp</span>. Once it reaches us we reply with your invoice, including shipping. 谢谢！</p><p class="send-again">Nothing opened? <a data-again href="#" target="_blank" rel="noopener">Try again</a>, or message us directly on <a href="https://wa.me/2482595547" target="_blank" rel="noopener">WhatsApp +248 259 5547</a> or at <a href="mailto:info@cocodemercosmetics.com">info@cocodemercosmetics.com</a>.</p></div>
     </div>
   </div>
 </section>

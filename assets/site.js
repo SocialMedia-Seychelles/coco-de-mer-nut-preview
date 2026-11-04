@@ -288,6 +288,8 @@
     const msg = encodeURIComponent(`Hello! I'd like to ask about Coco de Mer ${n.type === 'bowl' ? 'Bowl' : 'nut'} Nº ${n.id}.`);
     $$('[data-wa-nut]').forEach((a) => { a.href = `${WA}?text=${msg}`; });
     const hid = $('input[name="nut"]'); if (hid) hid.value = n.id;
+    const rf = $('#reserve-form');
+    if (rf) rf.dataset.send = `Hello! I'd like to reserve Coco de Mer ${n.type === 'bowl' ? 'Bowl' : 'nut'} Nº ${n.id} (${fmt(n.price)}).\n${location.href}`;
     if (n.status !== 'available') {
       const rb = $('[data-reserve-btn]');
       if (rb) { rb.textContent = n.status === 'sold' ? 'This one has found its home' : 'On hold for another collector'; rb.removeAttribute('href'); rb.style.pointerEvents = 'none'; rb.style.opacity = '.55'; }
@@ -356,13 +358,34 @@
     calc();
   }
 
-  /* ---------- Demo forms (preview only: nothing is sent) ---------- */
-  $$('form[data-demo]').forEach((f) => f.addEventListener('submit', (e) => {
+  /* ---------- Forms: open a ready-to-send WhatsApp or email message (no server needed) ---------- */
+  const MAIL = 'info@cocodemercosmetics.com';
+  const labelOf = (f, el) => {
+    const l = el.id && $(`label[for="${el.id}"]`, f);
+    return (l ? l.textContent : el.name || '').replace(/\s*\(optional\)/i, '').trim();
+  };
+  $$('form[data-send]').forEach((f) => f.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!f.checkValidity()) { f.reportValidity(); return; }
+    const lines = [f.dataset.send, ''];
+    $$('.orow', f).forEach((r) => { const c = $('input[type=checkbox]', r); if (c.checked) lines.push(`${c.value}: ${$('output', r).dataset.kg} kg`); });
+    if ($('.orow', f)) lines.push('');
+    $$('input, textarea', f).forEach((el) => {
+      if (['hidden', 'checkbox', 'submit'].includes(el.type) || !el.value.trim()) return;
+      if (el.type === 'radio') { if (el.checked) lines.push(`${$('.lbl', el.closest('.field')).textContent}: ${el.parentElement.textContent.trim()}`); return; }
+      lines.push(`${labelOf(f, el)}: ${el.value.trim()}`);
+    });
+    const body = lines.join('\n'), wa = (e.submitter && e.submitter.dataset.via) !== 'mail';
+    const url = wa ? `${WA}?text=${encodeURIComponent(body)}`
+      : `mailto:${MAIL}?subject=${encodeURIComponent(f.dataset.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
+    if (wa) window.open(url, '_blank', 'noopener'); else location.href = url;
     const done = f.nextElementSibling;
+    if (!done || !done.classList.contains('form-done')) return;
+    $$('[data-via-name]', done).forEach((el) => { el.textContent = wa ? 'WhatsApp' : 'your email app'; });
+    const again = $('[data-again]', done);
+    if (again) { again.href = url; if (!wa) again.removeAttribute('target'); }
     f.hidden = true;
-    if (done && done.classList.contains('form-done')) { done.classList.add('show'); done.setAttribute('tabindex', '-1'); done.focus(); }
+    done.classList.add('show'); done.setAttribute('tabindex', '-1'); done.focus();
   }));
 
   /* ---------- Journal filter ---------- */

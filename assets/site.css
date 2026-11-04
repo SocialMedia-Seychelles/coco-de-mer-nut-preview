@@ -1089,3 +1089,13 @@ button{cursor:pointer}
 .btn-perfume{height:56px;padding:0 22px;font-size:13px;letter-spacing:0;text-transform:none}
 @media (max-width:760px){.btn-perfume{height:46px;padding:0 14px;font-size:12px}}
 @media (min-width:761px) and (max-width:1100px){.site-footer{grid-template-columns:1.1fr 1fr 1fr;padding:64px 40px 96px}.foot-brand{grid-column:1/-1;display:flex;align-items:center;gap:32px}.foot-brand img{margin:0}.foot-brand p{margin:0}.foot-brand .socials{margin-left:auto}}
+
+/* send by WhatsApp / email */
+.send-lbl{width:100%;font-family:var(--ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;margin-bottom:-8px}
+.send-via{display:flex;gap:10px;flex-wrap:wrap}
+.send-via .btn svg{width:18px;height:18px}
+.form-foot .order-total{width:100%}
+.send-note{display:block;margin-top:12px;font-family:var(--ui);font-size:12px;opacity:.55}
+.send-again{margin-top:14px !important;font-size:13.5px}
+.send-again a{color:inherit}
+@media (max-width:560px){.send-via .btn{flex:1 1 140px}}
