@@ -107,7 +107,7 @@ print('built', len(posts), 'posts')
 REDIRECTS = {
     'home': 'index.html', 'blog': 'journal.html', 'faq': 'buying-guide.html#faq',
     'buy-coco-de-mer-kernel': 'kernel.html', 'shipping-and-returns': 'buying-guide.html#shipping',
-    'terms-and-conditions': 'buying-guide.html#returns', 'shop-cocodemer-perfume': PERFUME,
+    'terms-and-conditions': 'terms.html', 'shop-cocodemer-perfume': PERFUME,
 }
 for prod in ['coco-de-mer-female-nut-0007193', 'coco-de-mer-bowl-g000453', 'coco-de-mer-bowl-g000474', 'coco-de-mer-bowl-g000488',
              'coco-de-mer-female-nut-0010642', 'coco-de-mer-female-nut-0007208', 'coco-de-mer-female-nut-0007192',
