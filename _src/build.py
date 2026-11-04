@@ -43,7 +43,7 @@ def card(p):
 
 CTA = {
     'perfume': ('The husk becomes <em>perfume.</em>', 'Five fragrances made with the Coco de Mer husk, in our own factory.', '{{perfume}}index.html#collection', 'Discover the perfumes', ' target="_blank" rel="noopener"'),
-    'visit': ('Come and see it <em>for yourself.</em>', 'Free factory tours, Monday to Saturday. No booking needed.', '{{perfume}}shop-locally.html#tours', 'About the free tours', ' target="_blank" rel="noopener"'),
+    'visit': ('Come and see it <em>for yourself.</em>', 'Free factory tours, Monday to Saturday. No booking needed.', '{{perfume}}visit.html', 'About the free tours', ' target="_blank" rel="noopener"'),
 }
 CTA_NUT = ('Own a piece of <em>the legend.</em>', 'Certified, government-sealed nuts, shipped worldwide with all paperwork.', 'shop.html', 'Shop the Nut', '')
 
