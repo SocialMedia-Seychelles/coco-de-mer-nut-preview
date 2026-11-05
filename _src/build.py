@@ -121,3 +121,12 @@ for old, new in REDIRECTS.items():
                    '<meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=%s">'
                    '<script>location.replace(%s)</script></head><body><a href="%s">Continue</a></body></html>' % (to, json.dumps(to), to))
 print('built', len(REDIRECTS), 'redirects')
+
+# Sitemap + robots.txt for search engines (live domain)
+SITE = 'https://www.cocodemerseychelles.com/'
+urls = [SITE] + [SITE + p.name for p in sorted((SRC / 'pages').glob('*.html')) if p.name not in ('index.html', 'nut.html')]
+urls += [SITE + 'post/' + p['slug'] for p in posts]
+(ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                  + ''.join('  <url><loc>%s</loc></url>\n' % u for u in urls) + '</urlset>\n')
+(ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: %ssitemap.xml\n' % SITE)
+print('built sitemap', len(urls), 'urls')

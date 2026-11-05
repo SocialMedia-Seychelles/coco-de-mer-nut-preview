@@ -176,6 +176,7 @@
       const counts = { all: NUTS.length, nut: NUTS.filter((n) => n.type === 'nut').length, bowl: NUTS.filter((n) => n.type === 'bowl').length,
         available: NUTS.filter((n) => n.status === 'available').length };
       chips.forEach((c) => { const s = c.querySelector('span'); if (s) s.textContent = counts[c.dataset.filter]; });
+      if (!counts.bowl) chips.filter((c) => c.dataset.filter === 'bowl' || c.dataset.filter === 'nut').forEach((c) => { c.hidden = true; });
       const render = () => {
         let list = NUTS.filter((n) => filter === 'all' || (filter === 'available' ? n.status === 'available' : n.type === filter));
         list.sort((a, b) => byStatus(a, b) || (sort === 'featured' ? (a.type === b.type ? 0 : a.type === 'nut' ? -1 : 1)

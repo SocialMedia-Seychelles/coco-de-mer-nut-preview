@@ -1107,3 +1107,4 @@ button{cursor:pointer}
 .ps-body.legal .legal-lede{padding:22px 26px;border-radius:16px;background:rgba(255,255,255,.55);border:1px solid rgba(41,31,20,.1);font-size:18px}
 .ps-body.legal h2{font-size:clamp(24px,2.2vw,30px);scroll-margin-top:110px}
 .foot-legal span a{text-decoration:none;border-bottom:1px solid rgba(243,233,218,.25)}
+.chip[hidden]{display:none}
