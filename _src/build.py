@@ -12,7 +12,7 @@ SRC = ROOT / '_src'
 V = 'n' + str(int(time.time()))[-6:]
 NAV = ['home', 'shop', 'kernel', 'about', 'journal', 'guide']
 # Perfume site base URL: switch to https://www.cocodemercollection.com/ at launch
-PERFUME = 'https://socialmedia-seychelles.github.io/coco-de-mer-preview/'
+PERFUME = 'https://www.cocodemercollection.com/'
 
 partials = {p.stem: p.read_text() for p in (SRC / 'partials').glob('*.html')}
 
