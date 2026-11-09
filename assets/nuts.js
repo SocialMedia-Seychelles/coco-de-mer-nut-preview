@@ -25,7 +25,5 @@ window.NUTS = [
   { id: '0010565', type: 'nut', img: 'nut-0010565', w: 22.7, l: 25.3, g: 15.1, price: 600, status: 'available',
     desc: 'A petite, dark nut with a striking golden fibre line.' },
   { id: '0010657', type: 'nut', img: 'nut-0010657', w: 29.2, l: 29.8, g: 18.3, price: 560, status: 'available',
-    desc: 'A broad, rounded nut with a deep, dark husk.' },
-  { id: '0007196', type: 'nut', img: 'nut-0007196', w: 24, l: 31.5, g: 16.3, price: 500, status: 'available',
-    desc: 'A slender, tall nut with a dark husk and fine golden streaks.' }
+    desc: 'A broad, rounded nut with a deep, dark husk.' }
 ];
