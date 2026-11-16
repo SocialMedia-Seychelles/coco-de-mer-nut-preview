@@ -140,7 +140,8 @@
   }
 
   /* ---------- Nut cards ---------- */
-  const NUTS = window.NUTS || [];
+  // Sold nuts stay visible (marked Sold) for 3 weeks after soldOn, then drop off the site
+  const NUTS = (window.NUTS || []).filter((n) => !(n.status === 'sold' && n.soldOn && Date.now() - Date.parse(n.soldOn) > 21 * 864e5));
   const rank = { available: 0, reserved: 1, sold: 2 };
   const fmt = (n) => 'US$' + n.toLocaleString('en');
   const dims = (n) => `Width ${n.w} cm · Length ${n.l} cm` + (n.g ? ` · Girth ${n.g} cm` : '');
