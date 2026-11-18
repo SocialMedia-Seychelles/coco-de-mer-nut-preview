@@ -19,7 +19,7 @@ window.NUTS = [
     desc: 'A tall, elegant nut with a finely textured olive-brown husk.' },
   { id: '0006126', type: 'nut', img: 'nut-0006126', w: 28.2, l: 30.5, g: 17.3, price: 650, status: 'available',
     desc: 'A classic, evenly shaped nut with a dark, ribbed husk.' },
-  { id: '0007329', type: 'nut', img: 'nut-0007329', w: 25.3, l: 24.2, g: 16.7, price: 600, status: 'available',
+  { id: '0007329', type: 'nut', img: 'nut-0007329', w: 25.3, l: 24.2, g: 16.7, price: 600, status: 'sold', soldOn: '2026-11-18',
     desc: 'A compact, rounded nut with a dark, deeply grooved husk.' },
   { id: '0007330', type: 'nut', img: 'nut-0007330', w: 27, l: 27.9, g: 15.3, price: 600, status: 'available',
     desc: 'A rounded, heart-shaped nut with natural fibres at its base.' },
